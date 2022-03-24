@@ -7,9 +7,51 @@
     <title>Prenota Treno</title>
 
     <link rel="stylesheet" href="./asset/css/style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
+
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">TRENITALIA low budget</a>
+            </div>
+        </nav>
+    </header>
     
+    <main>
+        <div class="container py-4">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <span>
+                        I tuoi chilometri da percorrere: <span id="kilometers"></span> km
+                    </span>
+                </div>
+                <div class="col">
+                    <span>
+                        La tua età: <span id="age"></span> anni
+                    </span>
+                </div>
+                <div class="col">
+                    <span>
+                        Sconto applicato: <span id="discount"></span>
+                    </span>
+                </div>
+                <div class="col">
+                    <span class="fw-bold">
+                        Prezzo biglietto: <span id="final_price"></span> €
+                    </span>
+                </div>
+                <div class="col mt-4">
+                    <div class="btn btn-primary rounded-pill">
+                        Paga ora
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
 
 
 
