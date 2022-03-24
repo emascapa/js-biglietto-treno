@@ -31,8 +31,13 @@ var containsOnlyDigits = /^[0-9]+$/; // one or more of digits 0 to 9
 if (containsOnlyDigits.test(km_trip)) {
     km_trip = parseInt(km_trip);
 } else {
-    km_trip = prompt('PER FAVORE INSERIRE IL NUMERO DI CHILOMETRI)');
-    km_trip = parseInt(km_trip);
+    km_trip = prompt('PER FAVORE INSERIRE IL NUMERO DI CHILOMETRI');
+    /* km_trip = parseInt(km_trip); */
+    if (containsOnlyDigits.test(km_trip)) {
+        km_trip = parseInt(km_trip);
+    } else {
+        alert("ERRORE, non va bene, refresha la pagina");
+    }
 }
 
 
@@ -43,12 +48,20 @@ let user_age = prompt('Inserire età passeggero, per favore inserire un valore n
 if (containsOnlyDigits.test(user_age)) {
     user_age = parseInt(user_age);
 } else {
-    user_age = prompt('PER FAVORE INSERISCI LA TUA ETà IN NUMERI)');
-    user_age = parseInt(user_age);
+    user_age = prompt('PER FAVORE INSERISCI LA TUA ETà IN NUMERI');
+    /* user_age = parseInt(user_age); */
+    if (containsOnlyDigits.test(user_age)) {
+        user_age = parseInt(user_age);
+    } else {
+        alert("ERRORE, non va bene, refresha la pagina");
+    }
 }
 
 //calcolo prezzo biglietto standard
 let ticket_price = km_trip * 0.21;
+
+//salvo in una variabile il prezzo non scontato
+let basic_price = ticket_price.toFixed(2);
 
 
 //applico eventuale sconto
@@ -72,7 +85,21 @@ ticket_price = ticket_price.toFixed(2);
 document.getElementById('kilometers').innerHTML = km_trip;
 document.getElementById('age').innerHTML = user_age;
 document.getElementById('discount').innerHTML = discount;
-document.getElementById('final_price').innerHTML = ticket_price;
+
+
+if (user_age <=18 || user_age >= 65) {
+    const price_string1 = `Prezzo biglietto intero: ${basic_price} €`
+    const price_string2 = `Prezzo biglietto scontato: ${ticket_price} €`
+
+    document.getElementById('basic_price').innerHTML = price_string1;
+    document.getElementById('final_price').innerHTML = price_string2;
+} else {
+    const price_string2 = `Prezzo biglietto: ${ticket_price} €`
+
+    document.getElementById('final_price').innerHTML = price_string2;
+}
+
+
 
 
 
